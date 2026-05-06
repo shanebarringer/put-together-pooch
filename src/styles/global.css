@@ -3,16 +3,16 @@
 @theme {
   --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
 
-  --color-cream: #FEFCF7;
-  --color-cream-dark: #F0EDE4;
-  --color-forest: #2A5C45;
-  --color-forest-light: #3D7A5C;
-  --color-sage: #52B788;
-  --color-gold: #C4A35A;
-  --color-gold-light: #E8C97B;
-  --color-bark: #1A1A1A;
-  --color-bark-soft: #3D3D3D;
-  --color-muted: #6B7280;
+  --color-cream: #FFFFFF;
+  --color-cream-dark: #F4F7FA;
+  --color-forest: #0B1F35;
+  --color-forest-light: #1A3A57;
+  --color-sage: #3BBFB0;
+  --color-gold: #3BBFB0;
+  --color-gold-light: #5ECFC1;
+  --color-bark: #0B1F35;
+  --color-bark-soft: #334155;
+  --color-muted: #64748B;
 }
 
 html {
