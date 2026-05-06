@@ -1,0 +1,156 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Put Together Pooch | Dog Grooming in Denver, CO',
+  description = 'Professional dog grooming and self-service dog wash in Denver\'s City Park West neighborhood. Serving Denver since 2012. Call 303-861-4211.',
+} = Astro.props;
+
+const canonicalUrl = 'https://puttogetherpooch.com';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': canonicalUrl,
+  name: 'Put Together Pooch',
+  description: 'Professional dog grooming and self-service dog wash in Denver, CO.',
+  url: canonicalUrl,
+  telephone: '+13038614211',
+  email: 'theputtogetherpooch@qwestoffice.net',
+  foundingDate: '2012',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '1438 E. 22nd Ave',
+    addressLocality: 'Denver',
+    addressRegion: 'CO',
+    postalCode: '80205',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 39.7454,
+    longitude: -104.9634,
+  },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '10:00', closes: '18:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Sunday', opens: '12:00', closes: '18:00' },
+  ],
+  priceRange: '$$',
+  image: `${canonicalUrl}/og-image.jpg`,
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${canonicalUrl}/og-image.jpg`} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <style is:global>
+      @import "../styles/global.css";
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-dark">
+      <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+        <a href="#top" class="text-forest font-semibold text-lg tracking-tight">Put Together Pooch</a>
+
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-bark-soft">
+          <a href="#about" class="hover:text-forest transition-colors">About</a>
+          <a href="#services" class="hover:text-forest transition-colors">Services</a>
+          <a href="#gallery" class="hover:text-forest transition-colors">Gallery</a>
+          <a href="#hours" class="hover:text-forest transition-colors">Hours</a>
+          <a href="#contact" class="inline-flex items-center gap-2 bg-forest text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-forest-light transition-colors">
+            Call to Book
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded-lg text-bark-soft hover:text-forest transition-colors"
+          aria-label="Open menu"
+        >
+          <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-cream-dark px-5 pb-4">
+        <div class="flex flex-col gap-1 pt-3 text-sm font-medium">
+          <a href="#about" class="py-2 text-bark-soft hover:text-forest transition-colors">About</a>
+          <a href="#services" class="py-2 text-bark-soft hover:text-forest transition-colors">Services</a>
+          <a href="#gallery" class="py-2 text-bark-soft hover:text-forest transition-colors">Gallery</a>
+          <a href="#hours" class="py-2 text-bark-soft hover:text-forest transition-colors">Hours</a>
+          <a href="#contact" class="mt-2 inline-flex items-center justify-center bg-forest text-white px-4 py-2.5 rounded-full font-medium hover:bg-forest-light transition-colors">
+            Call to Book
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="top">
+      <slot />
+    </main>
+
+    <footer class="bg-forest text-white/80 py-10">
+      <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+        <p class="font-semibold text-white">Put Together Pooch</p>
+        <p>1438 E. 22nd Ave, Denver, CO 80205</p>
+        <p>&copy; {new Date().getFullYear()} Put Together Pooch. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      btn?.addEventListener('click', () => {
+        menu?.classList.toggle('hidden');
+        iconOpen?.classList.toggle('hidden');
+        iconClose?.classList.toggle('hidden');
+      });
+
+      // Close mobile menu when a link is clicked
+      menu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          iconOpen?.classList.remove('hidden');
+          iconClose?.classList.add('hidden');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+---
+---
+
+<section
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  style="padding-top: 64px;"
+>
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1920&q=80"
+      alt="Golden retriever getting a bath at Put Together Pooch"
+      class="w-full h-full object-cover"
+      fetchpriority="high"
+    />
+    <!-- Warm overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-forest/80 via-forest/60 to-bark/40"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl mx-auto px-5 text-center text-white">
+    <p class="text-gold-light text-sm font-medium uppercase tracking-widest mb-4">Denver's Neighborhood Groomer</p>
+    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+      Your dog deserves<br />the best.
+    </h1>
+    <p class="text-white/80 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+      Personalized, professional dog grooming and self-service dog wash in City Park West. Serving Denver since 2012.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="tel:+13038614211"
+        class="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-bark font-semibold px-8 py-4 rounded-full text-base transition-all hover:scale-105 shadow-lg"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        Call 303-861-4211
+      </a>
+      <a
+        href="#services"
+        class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-full text-base border border-white/30 transition-all backdrop-blur-sm"
+      >
+        See Our Services
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</section>
