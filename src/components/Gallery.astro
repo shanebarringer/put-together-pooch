@@ -1,57 +1,33 @@
 ---
 const photos = [
-  {
-    src: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1200&q=85',
-    alt: 'Golden retriever getting a bath',
-    wide: true,
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=800&q=85',
-    alt: 'Fluffy white dog portrait',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=85',
-    alt: 'Poodle after grooming',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=1200&q=85',
-    alt: 'Husky dog looking happy',
-    wide: true,
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1534361960057-19f4434a4f8e?auto=format&fit=crop&w=800&q=85',
-    alt: 'Golden retriever smiling',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=85',
-    alt: 'Two dogs playing together',
-  },
+  { src: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=900&q=85', alt: 'Golden retriever bath', tall: true },
+  { src: 'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=700&q=85', alt: 'Fluffy white dog' },
+  { src: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=700&q=85', alt: 'Poodle groomed' },
+  { src: 'https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=900&q=85', alt: 'Husky portrait', tall: true },
+  { src: 'https://images.unsplash.com/photo-1534361960057-19f4434a4f8e?auto=format&fit=crop&w=700&q=85', alt: 'Golden retriever' },
+  { src: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=700&q=85', alt: 'Dogs together' },
 ];
 ---
 
-<section id="gallery" class="py-0 bg-cream-dark">
-  <!-- Full-bleed section header on dark -->
-  <div class="bg-forest text-white py-20 px-5 text-center">
-    <p class="text-gold text-sm font-semibold uppercase tracking-widest mb-3">Furry Friends</p>
-    <h2 class="text-4xl md:text-5xl font-bold">The Pups</h2>
-    <p class="text-white/60 mt-4 max-w-sm mx-auto">Every dog that comes through our door is a star.</p>
+<section id="gallery" class="bg-cream-dark">
+  <div class="max-w-6xl mx-auto px-5 py-6">
+    <div class="flex items-center justify-between mb-6">
+      <p class="text-muted text-xs font-bold uppercase tracking-[0.2em]">The Pups</p>
+      <p class="text-muted text-xs">Real photos coming soon</p>
+    </div>
   </div>
 
-  <!-- Masonry-style grid, edge-to-edge on mobile -->
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2">
+  <!-- Edge-to-edge masonry grid -->
+  <div class="grid grid-cols-3 gap-1">
     {photos.map((photo) => (
-      <div class={`overflow-hidden ${photo.wide ? 'col-span-2 md:col-span-2' : ''}`}>
+      <div class={`overflow-hidden ${photo.tall ? 'row-span-2' : ''}`}>
         <img
           src={photo.src}
           alt={photo.alt}
-          class="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-700"
+          class={`w-full object-cover hover:scale-105 transition-transform duration-700 ${photo.tall ? 'h-full min-h-80' : 'h-48 md:h-56'}`}
           loading="lazy"
         />
       </div>
     ))}
-  </div>
-
-  <div class="bg-forest py-6 text-center">
-    <p class="text-white/50 text-sm">Photos will be updated with real Put Together Pooch pups soon.</p>
   </div>
 </section>
