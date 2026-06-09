@@ -3,16 +3,47 @@
 @theme {
   --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
 
-  --color-cream: #F7F5F0;
-  --color-cream-dark: #EDEAE2;
-  --color-forest: #111110;
-  --color-forest-light: #2A2A28;
-  --color-sage: #C8A96E;
-  --color-gold: #C8A96E;
-  --color-gold-light: #D9BF8A;
-  --color-bark: #111110;
-  --color-bark-soft: #3D3D3A;
-  --color-muted: #7A7A74;
+  /* Clean base */
+  --color-base: #FDFCFA;
+  --color-base-soft: #F3F0EA;
+  --color-ink: #161513;
+  --color-ink-soft: #45433E;
+  --color-muted: #79766F;
+
+  /* Pride-forward spectrum (refined, cohesive) */
+  --color-red: #F4413B;
+  --color-orange: #FF8C42;
+  --color-yellow: #FFC93C;
+  --color-green: #2EBD6B;
+  --color-blue: #2D9CDB;
+  --color-violet: #8B5CF6;
+
+  /* Brand accent (legible solid for headings/links) */
+  --color-brand: #F4413B;
+}
+
+:root {
+  /* Smooth gradient — used for fills only (buttons, borders), never clipped text */
+  --gradient-rainbow: linear-gradient(
+    90deg,
+    #F4413B 0%,
+    #FF8C42 20%,
+    #FFC93C 40%,
+    #2EBD6B 60%,
+    #2D9CDB 80%,
+    #8B5CF6 100%
+  );
+
+  /* Pride flag — hard-edged 6 stripes for deliberate accent moments */
+  --pride-flag: linear-gradient(
+    180deg,
+    #F4413B 0 16.66%,
+    #FF8C42 16.66% 33.33%,
+    #FFC93C 33.33% 50%,
+    #2EBD6B 50% 66.66%,
+    #2D9CDB 66.66% 83.33%,
+    #8B5CF6 83.33% 100%
+  );
 }
 
 html {
@@ -21,6 +52,36 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-bark);
+  background-color: var(--color-base);
+  color: var(--color-ink);
+}
+
+/* Horizontal Pride flag bar (rotate the vertical stripes 90deg) */
+.pride-bar {
+  background: linear-gradient(
+    90deg,
+    #F4413B 0 16.66%,
+    #FF8C42 16.66% 33.33%,
+    #FFC93C 33.33% 50%,
+    #2EBD6B 50% 66.66%,
+    #2D9CDB 66.66% 83.33%,
+    #8B5CF6 83.33% 100%
+  );
+}
+
+/* Vertical Pride flag stripe */
+.pride-stripe {
+  background: var(--pride-flag);
+}
+
+/* Primary gradient button (smooth fill — renders everywhere) */
+.btn-rainbow {
+  background: var(--gradient-rainbow);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.btn-rainbow:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.08);
+  box-shadow: 0 14px 30px -10px rgba(139, 92, 246, 0.5);
 }

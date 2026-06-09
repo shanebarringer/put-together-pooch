@@ -1,87 +1,72 @@
 ---
+const yelpUrl = 'https://www.yelp.com/biz/the-put-together-pooch-denver';
 ---
 
-<!-- Editorial hero: massive type left, stacked photos right -->
-<section class="min-h-screen bg-forest text-white grid md:grid-cols-[1fr_340px] lg:grid-cols-[1fr_420px]" style="padding-top: 64px;">
+<!-- Full-bleed hero: Susan's pup as the image, header + CTA overlaid on a legibility scrim -->
+<section class="relative min-h-[100svh] flex" style="padding-top: 68px;">
 
-  <!-- Left: editorial typography -->
-  <div class="flex flex-col justify-between px-8 md:px-14 py-16 min-h-[calc(100vh-64px)]">
-    <div>
-      <!-- Location tag -->
-      <div class="inline-flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5 text-xs font-medium text-white/60 tracking-widest uppercase mb-12">
-        <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
-        1438 E. 22nd Ave, City Park West, Denver
+  <!-- Background image -->
+  <img
+    src="/images/rainbow-boston.jpg"
+    alt="Susan's dog, freshly groomed and wearing a rainbow bandana"
+    class="absolute inset-0 w-full h-full object-cover object-[center_30%]"
+    fetchpriority="high"
+  />
+
+  <!-- Legibility scrim: fades up on mobile, fades right on desktop -->
+  <div
+    class="absolute inset-0 bg-gradient-to-t from-base via-base/85 to-base/10 md:bg-gradient-to-r md:from-base md:via-base/88 md:to-transparent"
+  ></div>
+
+  <!-- Content -->
+  <div class="relative w-full max-w-6xl mx-auto px-8 md:px-14 flex items-end md:items-center pb-14 md:pb-0">
+    <div class="max-w-xl">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-muted tracking-widest uppercase mb-6">
+        <span class="pride-bar w-6 h-2 rounded-full"></span>
+        City Park West, Denver · Est. 2012
       </div>
 
-      <!-- Big editorial headline -->
-      <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
-        Put<br />
-        Together<br />
-        <span class="text-gold">Pooch.</span>
-      </h1>
-    </div>
+      <!-- Wordmark with vertical Pride stripe -->
+      <div class="flex items-stretch gap-5">
+        <span class="pride-stripe w-2.5 rounded-full shrink-0"></span>
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.92] tracking-tight text-ink">
+          Put<br />Together<br />Pooch.
+        </h1>
+      </div>
 
-    <div class="mt-12 md:mt-0">
-      <p class="text-white/50 text-sm uppercase tracking-[0.2em] mb-4">Est. 2012</p>
-      <p class="text-white/70 text-xl leading-relaxed max-w-md mb-10">
-        Professional dog grooming and self-service dog wash in Denver's City Park West neighborhood.
+      <p class="mt-7 text-ink-soft text-xl leading-relaxed max-w-md">
+        No-rush dog grooming for small &amp; medium pups. <span class="font-semibold text-ink">By appointment only.</span>
       </p>
-      <div class="flex flex-wrap gap-4">
+
+      <!-- Booking CTA + social proof -->
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
         <a
           href="tel:+13038614211"
-          class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-forest font-bold px-7 py-3.5 rounded-lg text-sm transition-all hover:scale-105"
+          class="group inline-flex items-center gap-4 rounded-2xl p-[2.5px]"
+          style="background: var(--gradient-rainbow);"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-          </svg>
-          303-861-4211
+          <span class="flex items-center gap-4 bg-base rounded-[14px] pl-5 pr-6 py-4 transition-colors group-hover:bg-base-soft">
+            <span class="w-12 h-12 rounded-xl flex items-center justify-center text-white shrink-0" style="background: var(--gradient-rainbow);">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </span>
+            <span class="text-left">
+              <span class="block text-[11px] uppercase tracking-wider text-muted">Book a consultation</span>
+              <span class="block text-2xl font-extrabold text-ink leading-tight">303-861-4211</span>
+            </span>
+          </span>
         </a>
-        <a
-          href="#services"
-          class="inline-flex items-center gap-2 border border-white/20 hover:border-white/50 text-white/70 hover:text-white font-medium px-7 py-3.5 rounded-lg text-sm transition-all"
-        >
-          Services
+
+        <a href={yelpUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 group">
+          <span class="flex text-yellow">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <svg class={`w-4 h-4 ${i === 4 ? 'opacity-40' : ''}`} viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+            ))}
+          </span>
+          <span class="text-sm font-semibold text-ink-soft group-hover:text-ink transition-colors">4.5 · 55 reviews</span>
         </a>
       </div>
-
-      <!-- Hours strip -->
-      <div class="mt-10 pt-8 border-t border-white/10 flex flex-wrap gap-6 text-sm text-white/50">
-        <span>Tue–Sat: 10am–6pm</span>
-        <span class="text-white/20">|</span>
-        <span>Sun: 12–6pm</span>
-        <span class="text-white/20">|</span>
-        <span>Mon: Closed</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right: stacked photo rail (desktop only) -->
-  <div class="hidden md:flex flex-col h-[calc(100vh-64px)] sticky top-16">
-    <div class="flex-1 overflow-hidden">
-      <img
-        src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=85"
-        alt="Dog being groomed"
-        class="w-full h-full object-cover"
-        fetchpriority="high"
-      />
-    </div>
-    <div class="h-px bg-forest"></div>
-    <div class="flex-1 overflow-hidden">
-      <img
-        src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=600&q=85"
-        alt="Fluffy dog portrait"
-        class="w-full h-full object-cover"
-        loading="lazy"
-      />
-    </div>
-    <div class="h-px bg-forest"></div>
-    <div class="flex-[0.6] overflow-hidden">
-      <img
-        src="https://images.unsplash.com/photo-1534361960057-19f4434a4f8e?auto=format&fit=crop&w=600&q=85"
-        alt="Happy golden retriever"
-        class="w-full h-full object-cover"
-        loading="lazy"
-      />
     </div>
   </div>
 </section>

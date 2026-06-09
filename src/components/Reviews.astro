@@ -1,0 +1,69 @@
+---
+// All quotes are verbatim excerpts from verified public Yelp reviews.
+// Source: https://www.yelp.com/biz/the-put-together-pooch-denver
+const yelpUrl = 'https://www.yelp.com/biz/the-put-together-pooch-denver';
+
+const reviews = [
+  {
+    quote: 'Best in Denver! Susan was absolutely amazing for us and helped our difficult pup feel comfortable. We have tried many grooming spots in Denver but this place is far and away the best!',
+    author: 'Mary M.',
+  },
+  {
+    quote: "She is a rare gem in the dog grooming world - she works on your pup the whole time. I love that my anxious doodle doesn't have to be around a lot of other dogs with anxious energy or barking all day.",
+    author: 'Emily B.',
+  },
+  {
+    quote: 'Susan is so patient and good with this over the top diva behavior and really has grown amazing trust with my pup. We\'ve never left with even a minor injury ... Susan is our hero!',
+    author: 'Leanne B.',
+  },
+  {
+    quote: 'TREATS, positive reinforcement and all your good energy keeps this girl happy. Susan - we thank you for 4 years of awesomeness!!!',
+    author: 'Heidi C.',
+  },
+];
+---
+
+<section id="reviews" class="py-24 bg-base">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-muted mb-2">Reviews</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-ink">Loved by Denver dogs</h2>
+      </div>
+      <a href={yelpUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-3 group">
+        <span class="flex items-center gap-1.5">
+          <span class="text-2xl font-extrabold text-ink">4.5</span>
+          <span class="flex text-yellow">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <svg class={`w-4 h-4 ${i === 4 ? 'opacity-40' : ''}`} viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+            ))}
+          </span>
+        </span>
+        <span class="text-sm font-semibold text-muted group-hover:text-ink transition-colors">55 reviews on Yelp →</span>
+      </a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      {reviews.map((review) => (
+        <figure class="bg-white rounded-2xl p-7 shadow-sm border border-ink/5 flex flex-col">
+          <span class="pride-bar w-10 h-1.5 rounded-full mb-5"></span>
+          <blockquote class="text-ink-soft leading-relaxed flex-1">"{review.quote}"</blockquote>
+          <figcaption class="mt-5 flex items-center justify-between">
+            <span class="font-bold text-ink">{review.author}</span>
+            <span class="flex text-yellow">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+              ))}
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href={yelpUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-semibold text-blue hover:text-violet transition-colors">
+        Read all 55 reviews on Yelp →
+      </a>
+    </div>
+  </div>
+</section>

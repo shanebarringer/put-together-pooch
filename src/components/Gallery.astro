@@ -1,33 +1,48 @@
 ---
+const facebookUrl = 'https://www.facebook.com/ThePutTogetherPooch/';
+
 const photos = [
-  { src: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=900&q=85', alt: 'Golden retriever bath', tall: true },
-  { src: 'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=700&q=85', alt: 'Fluffy white dog' },
-  { src: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=700&q=85', alt: 'Poodle groomed' },
-  { src: 'https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=900&q=85', alt: 'Husky portrait', tall: true },
-  { src: 'https://images.unsplash.com/photo-1534361960057-19f4434a4f8e?auto=format&fit=crop&w=700&q=85', alt: 'Golden retriever' },
-  { src: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=700&q=85', alt: 'Dogs together' },
+  { src: '/images/cavachon-yellow.jpg', alt: 'Freshly groomed white Cavachon in a yellow harness' },
+  { src: '/images/rainbow-boston.jpg', alt: 'Boston terrier wearing a rainbow bandana' },
+  { src: '/images/westie.jpg', alt: 'West Highland terrier on the grooming table' },
+  { src: '/images/pom-lookup.jpg', alt: 'Cream Pomeranian looking up at the camera' },
+  { src: '/images/yorkie-pom.jpg', alt: 'Yorkie mix in a red harness' },
+  { src: '/images/shepherd-green.jpg', alt: 'Shepherd mix in a green holiday bandana' },
+  { src: '/images/pom-brick.jpg', alt: 'Pomeranian by the brick wall' },
+  { src: '/images/golden.jpg', alt: 'Golden retriever close-up' },
 ];
 ---
 
-<section id="gallery" class="bg-cream-dark">
-  <div class="max-w-6xl mx-auto px-5 py-6">
-    <div class="flex items-center justify-between mb-6">
-      <p class="text-muted text-xs font-bold uppercase tracking-[0.2em]">The Pups</p>
-      <p class="text-muted text-xs">Real photos coming soon</p>
-    </div>
-  </div>
-
-  <!-- Edge-to-edge masonry grid -->
-  <div class="grid grid-cols-3 gap-1">
-    {photos.map((photo) => (
-      <div class={`overflow-hidden ${photo.tall ? 'row-span-2' : ''}`}>
-        <img
-          src={photo.src}
-          alt={photo.alt}
-          class={`w-full object-cover hover:scale-105 transition-transform duration-700 ${photo.tall ? 'h-full min-h-80' : 'h-48 md:h-56'}`}
-          loading="lazy"
-        />
+<section id="gallery" class="bg-base">
+  <div class="max-w-6xl mx-auto px-5 py-20 md:py-24">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-muted mb-2">The Pups</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-ink">Our happy little clients</h2>
       </div>
-    ))}
+      <a href={facebookUrl} class="inline-flex items-center gap-2 font-semibold text-blue hover:text-violet transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+        </svg>
+        See more on Facebook →
+      </a>
+    </div>
+
+    <!-- Clean uniform grid of real client pups -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+      {photos.map((photo) => (
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/5]">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-muted text-sm mt-5 text-center">#PutTogetherPooch · #DenverDogGrooming · #CityParkWest</p>
   </div>
 </section>

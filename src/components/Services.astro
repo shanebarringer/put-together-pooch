@@ -1,52 +1,61 @@
 ---
 const services = [
   {
-    name: 'Self-Service Dog Wash',
-    description: "Our tubs, our shampoo, our dryers — your dog, your way. No appointment needed.",
-    detail: 'Walk-ins welcome',
-  },
-  {
     name: 'Full Grooming',
-    description: "Bath, blow-dry, breed-appropriate cut, nail trim, ear cleaning. One groomer, start to finish.",
-    detail: 'Call for pricing',
+    description: 'Bath, blow-dry, breed-appropriate cut, nails, ears. One groomer, start to finish.',
+    accent: '#F4413B',
   },
   {
     name: 'Nail Trim',
-    description: "Quick nail trim, no full groom needed. In and out.",
-    detail: 'Walk-ins welcome',
+    description: 'A quick, calm nail trim. No full groom needed.',
+    accent: '#2D9CDB',
+  },
+  {
+    name: "Puppy's First Groom",
+    description: 'A gentle intro so your puppy learns grooming is nothing to fear.',
+    accent: '#8B5CF6',
   },
 ];
 ---
 
-<section id="services" class="py-24 bg-cream">
+<section id="services" class="py-24 bg-base">
   <div class="max-w-6xl mx-auto px-5">
 
-    <div class="flex items-end justify-between mb-4">
-      <p class="text-bark text-xs font-bold uppercase tracking-[0.2em] text-muted">Services</p>
-      <p class="text-bark text-xs font-bold uppercase tracking-[0.2em] text-muted hidden sm:block">Availability</p>
+    <div class="mb-3">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-muted">Services</p>
     </div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-ink mb-2">
+      Grooming for <span class="text-brand">small &amp; medium dogs</span>
+    </h2>
+    <p class="text-muted max-w-xl mb-10">By appointment only. Call and we'll talk through what your pup needs.</p>
 
-    <div class="border-t border-bark/10">
+    <div class="border-t border-ink/10">
       {services.map((service) => (
-        <div class="group border-b border-bark/10 py-8 grid sm:grid-cols-[1fr_auto] gap-4 sm:gap-12 items-start hover:bg-cream-dark -mx-5 px-5 transition-colors">
-          <div>
-            <h3 class="text-2xl font-bold text-bark mb-2 group-hover:text-forest transition-colors">{service.name}</h3>
-            <p class="text-muted leading-relaxed max-w-xl">{service.description}</p>
+        <div class="group border-b border-ink/10 py-7 grid sm:grid-cols-[1fr_auto] gap-4 sm:gap-12 items-start hover:bg-base-soft -mx-5 px-5 transition-colors">
+          <div class="flex gap-4">
+            <span class="mt-1.5 w-1.5 h-10 rounded-full shrink-0" style={`background:${service.accent}`}></span>
+            <div>
+              <h3 class="text-2xl font-bold text-ink mb-1">{service.name}</h3>
+              <p class="text-muted leading-relaxed max-w-xl">{service.description}</p>
+            </div>
           </div>
-          <div class="shrink-0">
-            <span class="inline-block bg-forest/8 text-bark-soft text-sm font-medium px-4 py-2 rounded-lg">{service.detail}</span>
+          <div class="shrink-0 pl-5 sm:pl-0">
+            <span
+              class="inline-block text-sm font-semibold px-4 py-2 rounded-full"
+              style={`color:${service.accent}; background:${service.accent}1A`}
+            >By appointment</span>
           </div>
         </div>
       ))}
     </div>
 
-    <div class="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-bark/10">
-      <p class="text-muted">Every appointment is personal. We don't rush.</p>
+    <div class="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-ink/10">
+      <p class="text-muted">Every appointment is personal. We don't rush, and we don't double-book.</p>
       <a
         href="tel:+13038614211"
-        class="inline-flex items-center gap-2 bg-forest hover:bg-forest-light text-white font-semibold px-7 py-3.5 rounded-lg text-sm transition-colors"
+        class="btn-rainbow inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-full text-sm"
       >
-        Call to book
+        Call for a consultation
       </a>
     </div>
   </div>

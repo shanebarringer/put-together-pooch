@@ -6,20 +6,20 @@ interface Props {
 
 const {
   title = 'Put Together Pooch | Dog Grooming in Denver, CO',
-  description = 'Professional dog grooming and self-service dog wash in Denver\'s City Park West neighborhood. Serving Denver since 2012. Call 303-861-4211.',
+  description = 'Appointment-only dog grooming specializing in small-to-medium dogs in Denver\'s City Park West neighborhood. Serving Denver since 2012. Call 303-861-4211.',
 } = Astro.props;
 
 const canonicalUrl = 'https://puttogetherpooch.com';
+const facebookUrl = 'https://www.facebook.com/ThePutTogetherPooch/';
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': canonicalUrl,
   name: 'Put Together Pooch',
-  description: 'Professional dog grooming and self-service dog wash in Denver, CO.',
+  description: 'Appointment-only dog grooming specializing in small-to-medium dogs in Denver, CO.',
   url: canonicalUrl,
   telephone: '+13038614211',
-  email: 'theputtogetherpooch@qwestoffice.net',
   foundingDate: '2012',
   address: {
     '@type': 'PostalAddress',
@@ -40,6 +40,15 @@ const schema = {
   ],
   priceRange: '$$',
   image: `${canonicalUrl}/og-image.jpg`,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.5',
+    reviewCount: '55',
+  },
+  sameAs: [
+    'https://www.yelp.com/biz/the-put-together-pooch-denver',
+    'https://www.facebook.com/ThePutTogetherPooch/',
+  ],
 };
 ---
 
@@ -75,25 +84,39 @@ const schema = {
   </head>
   <body class="antialiased">
     <!-- Nav -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-dark">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-base/90 backdrop-blur-md border-b border-base-soft">
+      <div class="pride-bar h-1"></div>
       <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
-        <a href="#top" class="text-forest font-semibold text-lg tracking-tight">Put Together Pooch</a>
+        <a href="#top" class="flex items-center gap-2.5 font-extrabold text-lg tracking-tight text-ink">
+          <span class="pride-stripe block w-2 h-6 rounded-full"></span>
+          Put Together Pooch
+        </a>
 
         <!-- Desktop nav -->
-        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-bark-soft">
-          <a href="#about" class="hover:text-forest transition-colors">About</a>
-          <a href="#services" class="hover:text-forest transition-colors">Services</a>
-          <a href="#gallery" class="hover:text-forest transition-colors">Gallery</a>
-          <a href="#hours" class="hover:text-forest transition-colors">Hours</a>
-          <a href="#contact" class="inline-flex items-center gap-2 bg-forest text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-forest-light transition-colors">
-            Call to Book
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-soft">
+          <a href="#about" class="hover:text-red transition-colors">About</a>
+          <a href="#services" class="hover:text-red transition-colors">Services</a>
+          <a href="#gallery" class="hover:text-red transition-colors">Gallery</a>
+          <a href="#reviews" class="hover:text-red transition-colors">Reviews</a>
+          <a href="#hours" class="hover:text-red transition-colors">Hours</a>
+          <a
+            href={facebookUrl}
+            aria-label="Follow us on Facebook"
+            class="text-muted hover:text-blue transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+            </svg>
+          </a>
+          <a href="tel:+13038614211" class="btn-rainbow inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold">
+            Call for Consultation
           </a>
         </div>
 
         <!-- Mobile menu button -->
         <button
           id="menu-btn"
-          class="md:hidden p-2 rounded-lg text-bark-soft hover:text-forest transition-colors"
+          class="md:hidden p-2 rounded-lg text-ink-soft hover:text-red transition-colors"
           aria-label="Open menu"
         >
           <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,14 +129,16 @@ const schema = {
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-cream-dark px-5 pb-4">
+      <div id="mobile-menu" class="hidden md:hidden bg-base border-t border-base-soft px-5 pb-4">
         <div class="flex flex-col gap-1 pt-3 text-sm font-medium">
-          <a href="#about" class="py-2 text-bark-soft hover:text-forest transition-colors">About</a>
-          <a href="#services" class="py-2 text-bark-soft hover:text-forest transition-colors">Services</a>
-          <a href="#gallery" class="py-2 text-bark-soft hover:text-forest transition-colors">Gallery</a>
-          <a href="#hours" class="py-2 text-bark-soft hover:text-forest transition-colors">Hours</a>
-          <a href="#contact" class="mt-2 inline-flex items-center justify-center bg-forest text-white px-4 py-2.5 rounded-full font-medium hover:bg-forest-light transition-colors">
-            Call to Book
+          <a href="#about" class="py-2 text-ink-soft hover:text-red transition-colors">About</a>
+          <a href="#services" class="py-2 text-ink-soft hover:text-red transition-colors">Services</a>
+          <a href="#gallery" class="py-2 text-ink-soft hover:text-red transition-colors">Gallery</a>
+          <a href="#reviews" class="py-2 text-ink-soft hover:text-red transition-colors">Reviews</a>
+          <a href="#hours" class="py-2 text-ink-soft hover:text-red transition-colors">Hours</a>
+          <a href={facebookUrl} class="py-2 text-ink-soft hover:text-blue transition-colors">Facebook</a>
+          <a href="tel:+13038614211" class="btn-rainbow mt-2 inline-flex items-center justify-center px-4 py-2.5 rounded-full font-semibold">
+            Call for Consultation
           </a>
         </div>
       </div>
@@ -123,11 +148,19 @@ const schema = {
       <slot />
     </main>
 
-    <footer class="bg-forest text-white/80 py-10">
-      <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-        <p class="font-semibold text-white">Put Together Pooch</p>
-        <p>1438 E. 22nd Ave, Denver, CO 80205</p>
-        <p>&copy; {new Date().getFullYear()} Put Together Pooch. All rights reserved.</p>
+    <footer class="bg-ink text-white/70">
+      <div class="pride-bar h-1.5"></div>
+      <div class="max-w-6xl mx-auto px-5 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+        <p class="font-extrabold text-lg text-white">Put Together Pooch</p>
+        <p>1438 E. 22nd Ave, Denver, CO 80205 · By appointment only</p>
+        <div class="flex items-center gap-4">
+          <a href={facebookUrl} aria-label="Follow us on Facebook" class="text-white/60 hover:text-blue transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+            </svg>
+          </a>
+          <p>&copy; {new Date().getFullYear()} Put Together Pooch</p>
+        </div>
       </div>
     </footer>
 

@@ -1,37 +1,35 @@
 ---
+const stats = [
+  { value: '13+', label: 'Years in Denver', accent: '#FF5470' },
+  { value: '1-on-1', label: 'Every appointment', accent: '#3DD68C' },
+  { value: 'Sm–Md', label: 'Our specialty', accent: '#6C63FF' },
+];
 ---
 
-<section id="about" class="bg-forest text-white">
-  <!-- Editorial pull quote -->
+<section id="about" class="bg-base-soft text-ink">
   <div class="max-w-6xl mx-auto px-5 py-20 md:py-28">
     <div class="grid md:grid-cols-[auto_1fr] gap-8 md:gap-16 items-start">
       <!-- Vertical label -->
       <div class="hidden md:flex flex-col items-center gap-4 pt-2">
-        <p class="text-white/30 text-xs uppercase tracking-[0.3em] rotate-180" style="writing-mode: vertical-rl">Est. 2012</p>
-        <div class="w-px flex-1 bg-white/10 min-h-[120px]"></div>
+        <p class="text-muted text-xs uppercase tracking-[0.3em] rotate-180" style="writing-mode: vertical-rl">Est. 2012</p>
+        <div class="pride-stripe w-1.5 flex-1 rounded-full min-h-[120px]"></div>
       </div>
 
       <div>
-        <blockquote class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white mb-8">
-          "We've been in City Park West since 2012. We know the neighborhood — and we probably know your neighbor's dog."
+        <blockquote class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-ink mb-8">
+          In City Park West since 2012. We know the neighborhood, and we probably know your <span class="text-brand">neighbor's dog.</span>
         </blockquote>
-        <p class="text-white/50 text-lg leading-relaxed max-w-2xl">
-          Not a chain. Not a franchise. Just a small grooming shop that's been part of this neighborhood for over a decade. We're not going anywhere.
+        <p class="text-ink-soft text-lg leading-relaxed max-w-2xl">
+          Not a chain. Just Susan and a small shop on 22nd Ave, here for over a decade. One dog at a time, by appointment only, so your pup is never stuck in a loud room full of anxious dogs.
         </p>
 
-        <div class="mt-10 flex flex-wrap gap-8 pt-8 border-t border-white/10">
-          <div>
-            <p class="text-3xl font-bold text-gold">13+</p>
-            <p class="text-white/50 text-sm mt-1">Years in Denver</p>
-          </div>
-          <div>
-            <p class="text-3xl font-bold text-gold">1-on-1</p>
-            <p class="text-white/50 text-sm mt-1">Every appointment</p>
-          </div>
-          <div>
-            <p class="text-3xl font-bold text-gold">City Park West</p>
-            <p class="text-white/50 text-sm mt-1">1438 E. 22nd Ave</p>
-          </div>
+        <div class="mt-10 grid grid-cols-3 gap-6 pt-8 border-t border-ink/10">
+          {stats.map((stat) => (
+            <div>
+              <p class="text-3xl md:text-4xl font-extrabold" style={`color:${stat.accent}`}>{stat.value}</p>
+              <p class="text-muted text-sm mt-1">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
